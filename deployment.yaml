@@ -1,19 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: register-app-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: register-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: register-app
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        - name: register-app
+          image: daomynhi/register-app-pipeline:1.0.0-9
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
