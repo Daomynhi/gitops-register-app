@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: register-app-deployment
+  name: demo-java-jenkins-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: register-app
+      app: demo-java-jenkins
   template:
     metadata:
       labels:
-        app: register-app
+        app: demo-java-jenkins
     spec:
       containers:
         - name: register-app
